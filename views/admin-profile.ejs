@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <%- include('partials/head.ejs')%>
+    <title>Document</title>
+  </head>
+  <body>
+    <%- include('partials/header.ejs')%>
+    <div class="container">
+      <main class="main">
+        <div class="categories">
+          <h3>Жанры</h3>
+          <% genres.forEach(genre => { %>
+          <a href=""><%= genre.name %></a>
+          <% }) %>
+        </div>
+        <div class="main-content">
+          <h3>Профиль</h3>
+          <div class="profile">
+            <div class="profile-img">
+              <img src="/images/profile-img.webp" alt="" />
+            </div>
+            <div class="profile-info">
+              <p><span>Полное имя: </span><%= user.full_name %></p>
+              <p><span>E-mail: </span><%= user.email %></p>
+              <a class="edit-btn" href="">Редактировать профиль</a>
+              <a class="logout-btn" href="/api/signout">Выход</a>
+            </div>
+          </div>
+          <h3>Фильмы</h3>
+          <a href="/new" class="add-btn">Добавить фильм</a>
+          <div class="main-card">
+            <div class="card-left">
+              <div class="film-img">
+                <img src="/images/films/film-1.webp" alt="" />
+              </div>
+              <div class="film-info">
+                <a href="">Подземелья и драконы: Честь среди воров (2023)</a>
+                <a href=""
+                  >Dungeons & Dragons: Honor Among Thieves, 2023, 134 мин.
+                </a>
+                <a href="">США, фэнтези</a>
+                <a href=""
+                  >Режиссер Джон Фрэнсис Дейли, Джонатан М. Голдштейн</a
+                >
+                <button class="film-btn">
+                  <img src="/images/icons/play.svg" alt="" /> Смотреть
+                </button>
+              </div>
+            </div>
+            <div class="card-right">
+              <div class="film-rate">
+                <p>7.6</p>
+              </div>
+              <div class="film-btns">
+                <a href="/edit">Редактировать</a><a>Удалить</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

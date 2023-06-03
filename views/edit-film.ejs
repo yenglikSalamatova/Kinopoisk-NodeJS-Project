@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('partials/head.ejs')%>
+    <title>Document</title>
+  </head>
+  <body>
+    <%- include('partials/header.ejs')%>
+    <div class="container">
+      <div class="main">
+        <form action="" class="form">
+          <h3>Редактировать фильм</h3>
+          <fieldset class="fieldset">
+            <label for="">Добавьте картинку фильма</label>
+            <input type="file" name="film-img" />
+          </fieldset>
+          <fieldset class="fieldset">
+            <label for="">Название фильма на русском</label>
+            <input
+              type="text"
+              placeholder="Введите название фильма на русском"
+              name="title-rus"
+            />
+          </fieldset>
+          <fieldset class="fieldset">
+            <label for="">Название фильма на английском</label>
+            <input
+              type="text"
+              placeholder="Введите название фильма на английском"
+              name="title-eng"
+            />
+          </fieldset>
+          <fieldset class="fieldset">
+            <label for="">Год выпуска</label>
+            <input
+              type="number"
+              placeholder="Введите год выпуска фильма"
+              name="year"
+            />
+          </fieldset>
+          <fieldset class="fieldset">
+            <label for="">Длительность фильма</label>
+            <input
+              type="number"
+              placeholder="Введите длительность фильма"
+              name="time"
+            />
+          </fieldset>
+          <fieldset class="fieldset">
+            <label for="">Страна выпуска</label>
+            <select name="country" id="">
+              <<% countries.forEach(country => { %>
+              <option value=""><%= country.name %></option>
+              <% }) %>>
+            </select>
+          </fieldset>
+          <fieldset class="fieldset">
+            <label for="">Выберите жанр</label>
+            <select name="genre" id="">
+              <% genres.forEach(element => {%>
+              <option value=""><%=element.name%></option>
+              <% }); %>
+            </select>
+          </fieldset>
+          <fieldset class="fieldset">
+            <button type="submit">Сохранить</button>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

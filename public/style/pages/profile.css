@@ -1,0 +1,44 @@
+.profile {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.profile-img {
+  width: 15%;
+}
+.profile-img img {
+  width: 100%;
+}
+.profile-info {
+  width: 80%;
+}
+.profile-info p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+.profile-info p span {
+  font-weight: 600;
+}
+.profile-info a {
+  text-decoration: none;
+  padding: 7px 25px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 500;
+  font-size: 16px;
+}
+.edit-btn {
+  background: linear-gradient(
+    90deg,
+    #ff5c4d,
+    #eb469f 26.56%,
+    #8341ef 75%,
+    #3f68f9
+  );
+}
+.logout-btn {
+  background-color: #eb4646;
+}

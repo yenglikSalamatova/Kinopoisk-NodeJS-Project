@@ -1,0 +1,38 @@
+.film-btns a {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  width: 90%;
+  margin-bottom: 15px;
+  padding: 7px 10px;
+  border: none;
+  border-radius: 15px;
+  font-size: 14px;
+}
+.film-btns a:first-child {
+  background-color: yellow;
+}
+.film-btns a:last-child {
+  background-color: red;
+  color: #fff;
+}
+.add-btn {
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  background: linear-gradient(
+    90deg,
+    #ff5c4d,
+    #eb469f 26.56%,
+    #8341ef 75%,
+    #3f68f9
+  );
+  color: #fff;
+  font-size: 16px;
+  padding: 7px 20px;
+  border-radius: 15px;
+  border: none;
+  margin-bottom: 20px;
+  margin-left: 15px;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <%- include('partials/head.ejs')%>
+    <title>Document</title>
+  </head>
+  <body>
+    <%- include('partials/header.ejs')%>
+    <div class="container">
+      <main class="main">
+        <div class="categories">
+          <h3>Жанры</h3>
+          <% genres.forEach(genre => { %>
+          <a href=""><%= genre.name %></a>
+          <% }) %>
+        </div>
+        <div class="main-content">
+          <h3>Профиль</h3>
+          <div class="profile">
+            <div class="profile-img">
+              <img src="/images/profile-img.webp" alt="" />
+            </div>
+            <div class="profile-info">
+              <p><span>Полное имя: </span><%= user.full_name %></p>
+              <p><span>E-mail: </span><%= user.email %></p>
+              <% if(loginUser.id===user.id) { %>
+              <a class="edit-btn">Редактировать профиль</a>
+              <a href="/api/signout" class="logout-btn">Выход</a>
+              <% }%>
+            </div>
+          </div>
+          <h3>Сохраненные фильмы</h3>
+          <div class="main-card">
+            <div class="card-left">
+              <div class="film-img">
+                <img src="/images/films/film-1.webp" alt="" />
+              </div>
+              <div class="film-info">
+                <a href="">Подземелья и драконы: Честь среди воров (2023)</a>
+                <a href=""
+                  >Dungeons & Dragons: Honor Among Thieves, 2023, 134 мин.
+                </a>
+                <a href="">США, фэнтези</a>
+                <a href=""
+                  >Режиссер Джон Фрэнсис Дейли, Джонатан М. Голдштейн</a
+                >
+                <button class="film-btn">
+                  <img src="/images/icons/play.svg" alt="" /> Смотреть
+                </button>
+              </div>
+            </div>
+            <div class="card-right">
+              <div class="film-rate">
+                <p>7.6</p>
+              </div>
+              <button class="film-btn">
+                <img src="/images/icons/save.svg" alt="" />
+                Буду смотреть
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
