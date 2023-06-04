@@ -3,10 +3,16 @@ const router = express.Router();
 const Genres = require("../Genres/genres");
 const Country = require("../Country/Country");
 const User = require("../auth/User");
+const Film = require("../films/film");
 
 router.get("/", async (req, res) => {
   const allGenres = await Genres.find();
-  res.render("index", { genres: allGenres, user: req.user ? req.user : {} });
+  const films = await Film.find().populate("country").populate("genre");
+  res.render("index", {
+    genres: allGenres,
+    user: req.user ? req.user : {},
+    films,
+  });
 });
 
 router.get("/login", (req, res) => {
@@ -28,10 +34,15 @@ router.get("/profile/:id", async (req, res) => {
 router.get("/admin/:id", async (req, res) => {
   const allGenres = await Genres.find();
   const user = await User.findById(req.params.id);
+  const films = await Film.find()
+    .populate("country")
+    .populate("genre")
+    .populate("author");
   res.render("admin-profile", {
     genres: allGenres,
     loginUser: req.user ? req.user : {},
     user,
+    films,
   });
 });
 
@@ -45,13 +56,15 @@ router.get("/new", async (req, res) => {
   });
 });
 
-router.get("/edit", async (req, res) => {
+router.get("/edit/:id", async (req, res) => {
   const allGenres = await Genres.find();
   const allCountries = await Country.find();
+  const film = await Film.findById(req.params.id);
   res.render("edit-film", {
     genres: allGenres,
     countries: allCountries,
     user: req.user ? req.user : {},
+    film,
   });
 });
 

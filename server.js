@@ -9,15 +9,17 @@ require("./server/config/passport");
 
 app.set("view engine", "ejs");
 app.use(express.static(`${__dirname}/public`));
-app.use(express.urlencoded());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(
   session({
     name: "kinopoisk.session",
     secret: "keyboard cat",
     maxAge: 1000 * 60 * 60 * 7,
     resave: false,
+    saveUninitialized: true,
     store: mongooseStore.create({
-      mongoUrl: "mongodb://127.0.0.1:27017",
+      mongoUrl: "mongodb://127.0.0.1:27017/kinopoisk",
     }),
   })
 );
@@ -28,9 +30,7 @@ app.use(require("./server/pages/router"));
 app.use(require("./server/Genres/router"));
 app.use(require("./server/Country/router"));
 app.use(require("./server/auth/router"));
-// app.get("/", (req, res) => {
-//   res.render("index");
-// });
+app.use(require("./server/films/router"));
 
 const PORT = 8000;
 app.listen(PORT, () => {
