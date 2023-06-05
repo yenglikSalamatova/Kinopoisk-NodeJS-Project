@@ -1,0 +1,42 @@
+.addSeriesBtn {
+  width: 30%;
+  box-sizing: border-box;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 15px 20px;
+  border: none;
+  background: gray;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 7px;
+  margin-top: 20px;
+}
+.series {
+  width: 100%;
+  margin: 15px 0;
+}
+.series p {
+  font-size: 18px;
+  margin: 15px;
+  font-weight: 500;
+}
+.series input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 15px 20px;
+  font-size: 16px;
+  outline: none;
+  border: 1px solid rgba(31, 31, 31, 0.1);
+  border-radius: 7px;
+}
+#urls {
+  width: 30%;
+}
+#urls .fieldset {
+  width: 100%;
+  margin-top: 20px;
+}
+#addFilmUrlBtn {
+  margin-bottom: 20px;
+}

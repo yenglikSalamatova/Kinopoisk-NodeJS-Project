@@ -59,6 +59,15 @@
             />
           </fieldset>
           <fieldset class="fieldset">
+            <label for="">Ссылка на фильм</label>
+            <input
+              type="text"
+              placeholder="Введите ссылку на фильм"
+              name="video"
+              value="<%= film.video %>"
+            />
+          </fieldset>
+          <fieldset class="fieldset">
             <label for="">Страна выпуска</label>
             <select name="country" id="">
               <% countries.forEach(country => { %> <% if
@@ -87,5 +96,6 @@
         </form>
       </div>
     </div>
+    <%- include('partials/scripts.ejs') %>
   </body>
 </html>

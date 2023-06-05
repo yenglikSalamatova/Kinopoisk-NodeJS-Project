@@ -2,13 +2,18 @@ const express = require("express");
 const session = require("express-session");
 const mongooseStore = require("connect-mongo");
 const passport = require("passport");
+const morgan = require("morgan");
 const app = express();
+
+app.use(express.static(`${__dirname}/public`));
 
 require("./server/config/db");
 require("./server/config/passport");
 
+app.use(morgan("dev"));
+
 app.set("view engine", "ejs");
-app.use(express.static(`${__dirname}/public`));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
@@ -31,6 +36,8 @@ app.use(require("./server/Genres/router"));
 app.use(require("./server/Country/router"));
 app.use(require("./server/auth/router"));
 app.use(require("./server/films/router"));
+app.use(require("./server/user/router"));
+app.use(require("./server/rates/router"));
 
 const PORT = 8000;
 app.listen(PORT, () => {

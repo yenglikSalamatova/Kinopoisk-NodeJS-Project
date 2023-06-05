@@ -30,20 +30,20 @@
             </div>
           </div>
           <h3>Сохраненные фильмы</h3>
+          <% if (user.toWatch.length>0) { %> <% user.toWatch.forEach(film => {
+          %>
           <div class="main-card">
             <div class="card-left">
               <div class="film-img">
-                <img src="/images/films/film-1.webp" alt="" />
+                <img src="<%=film.image%>" alt="" />
               </div>
               <div class="film-info">
-                <a href="">Подземелья и драконы: Честь среди воров (2023)</a>
+                <a href=""><%=film.titleRus%></a>
                 <a href=""
-                  >Dungeons & Dragons: Honor Among Thieves, 2023, 134 мин.
+                  ><%=film.titleEng%>, <%=film.year%>, <%=film.time%> мин.
                 </a>
-                <a href="">США, фэнтези</a>
-                <a href=""
-                  >Режиссер Джон Фрэнсис Дейли, Джонатан М. Голдштейн</a
-                >
+                <a href=""><%=film.country.name%>, <%=film.genre.name%></a>
+
                 <button class="film-btn">
                   <img src="/images/icons/play.svg" alt="" /> Смотреть
                 </button>
@@ -53,14 +53,19 @@
               <div class="film-rate">
                 <p>7.6</p>
               </div>
-              <button class="film-btn">
-                <img src="/images/icons/save.svg" alt="" />
-                Буду смотреть
+              <button
+                class="film-btn"
+                onclick="deleteFromToWatch('<%=film.id%>')"
+              >
+                <img src="/images/icons/saved.svg" alt="" />
+                Сохранено
               </button>
             </div>
           </div>
+          <% }) %> <% } %>
         </div>
       </main>
     </div>
+    <%- include('partials/scripts.ejs') %>
   </body>
 </html>

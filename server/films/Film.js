@@ -10,6 +10,8 @@ const FilmSchema = new mongoose.Schema({
   genre: { type: Schema.Types.ObjectId, ref: "genre" },
   image: String,
   author: { type: Schema.Types.ObjectId, ref: "user" },
+  video: String,
+  series: [String],
 });
 
 const Film = mongoose.model("film", FilmSchema);

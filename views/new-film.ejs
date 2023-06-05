@@ -51,6 +51,7 @@
               name="time"
             />
           </fieldset>
+
           <fieldset class="fieldset">
             <label for="">Страна выпуска</label>
             <select name="country" id="">
@@ -67,11 +68,28 @@
               <% }); %>
             </select>
           </fieldset>
+          <a
+            class="addSeriesBtn"
+            id="addSeriesBtn"
+            href=""
+            onclick="addSeries(event)"
+            >Добавить серии</a
+          >
+          <a
+            class="addSeriesBtn"
+            id="addFilmUrlBtn"
+            href=""
+            onclick="addFilmUrl(event)"
+            >Добавить ссылку на фильм</a
+          >
+          <div id="urls"></div>
+
           <fieldset class="fieldset">
             <button type="submit" name="submit">Добавить</button>
           </fieldset>
         </form>
       </div>
     </div>
+    <%- include('partials/scripts.ejs') %>
   </body>
 </html>

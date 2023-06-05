@@ -11,9 +11,13 @@
       <img src="/images/icons/tv.svg" alt="" />
       Установить на ТВ
     </a>
-    <div class="head-search">
-      <input type="text" placeholder="Фильмы, сериалы и персоны" />
-      <button>
+    <form class="head-search">
+      <input
+        type="text"
+        name="search"
+        placeholder="Фильмы, сериалы и персоны"
+      />
+      <button type="sumbit">
         <svg
           class="styles_icon__1bYKL search-form-submit-button__icon"
           width="20"
@@ -29,7 +33,7 @@
           ></path>
         </svg>
       </button>
-    </div>
+    </form>
   </div>
   <div class="head-buttons">
     <% if(user._id && user.isAdmin) { %>

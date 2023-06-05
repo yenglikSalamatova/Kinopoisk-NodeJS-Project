@@ -11,7 +11,7 @@
         <div class="categories">
           <h3>Жанры</h3>
           <% genres.forEach((genre)=>{ %>
-          <a href="/<%= genre.key %>"><%=genre.name%></a>
+          <a href="?genre=<%= genre.key %>"><%=genre.name%></a>
           <%}) %>
         </div>
         <div class="main-content">
@@ -23,11 +23,13 @@
                 <img src="<%= film.image %>" alt="" />
               </div>
               <div class="film-info">
-                <a href=""><%= film.titleRus %></a>
-                <a href=""
+                <a href="/detail/<%=film.id%>"><%= film.titleRus %></a>
+                <a href="/detail/<%=film.id%>"
                   ><%= film.titleEng %>, <%= film.year %>, <%= film.time %> мин.
                 </a>
-                <a href=""><%= film.country.name %>, <%= film.genre.name %></a>
+                <a href="/detail/<%=film.id%>"
+                  ><%= film.country.name %>, <%= film.genre.name %></a
+                >
 
                 <button class="film-btn">
                   <img src="/images/icons/play.svg" alt="" /> Смотреть
@@ -38,15 +40,40 @@
               <div class="film-rate">
                 <p>7.6</p>
               </div>
-              <button class="film-btn">
+              <% if (user.toWatch && user.toWatch.includes(film.id)) { %>
+              <button
+                class="film-btn"
+                onclick="deleteFromToWatch('<%=film.id%>')"
+              >
+                <img src="/images/icons/saved.svg" alt="" />
+                Сохранено
+              </button>
+              <% } else {%>
+              <button class="film-btn" onclick="saveToWatch('<%=film.id%>')">
                 <img src="/images/icons/save.svg" alt="" />
                 Буду смотреть
               </button>
+              <% } %>
             </div>
           </div>
           <% }) %>
+          <div class="pages">
+            <% let localsString = '';
+              if (locals.genre) {
+                localsString =`genre=${locals.genre}&`}
+                if(locals.search) {
+                  localsString = `search=${locals.search}&`
+                }
+                %>
+              <% for(let i=0; i<pages;i++) {%>
+                <a href="?<%=localsString%>page=<%= i %>"><%= i+1 %></a>
+              <%}%>
+
+
+          </div>
         </div>
       </main>
     </div>
+    <%- include('partials/scripts.ejs') %>
   </body>
 </html>
